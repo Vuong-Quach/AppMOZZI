@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BHMOZZIModelStoreContainer" CdmEntityContainer="BHMOZZIEntities">
+    <EntitySetMapping Name="CTPNKs">
+      <EntityTypeMapping TypeName="BHMOZZIModel.CTPNK">
+        <MappingFragment StoreEntitySet="CTPNK">
+          <ScalarProperty Name="ID_CTPNK" ColumnName="ID_CTPNK" />
+          <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
+          <ScalarProperty Name="ID_PNK" ColumnName="ID_PNK" />
+          <ScalarProperty Name="Name_SP" ColumnName="Name_SP" />
+          <ScalarProperty Name="So_Luong" ColumnName="So_Luong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTHDs">
+      <EntityTypeMapping TypeName="BHMOZZIModel.CTHD">
+        <MappingFragment StoreEntitySet="CTHD">
+          <ScalarProperty Name="ID_CTHD" ColumnName="ID_CTHD" />
+          <ScalarProperty Name="ID_HD" ColumnName="ID_HD" />
+          <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
+          <ScalarProperty Name="Name_SP" ColumnName="Name_SP" />
+          <ScalarProperty Name="So_Luong" ColumnName="So_Luong" />
+          <ScalarProperty Name="Don_vi_tinh" ColumnName="Don_vi_tinh" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="Thanh_Tien" ColumnName="Thanh_Tien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HDs">
+      <EntityTypeMapping TypeName="BHMOZZIModel.HD">
+        <MappingFragment StoreEntitySet="HD">
+          <ScalarProperty Name="ID_HD" ColumnName="ID_HD" />
+          <ScalarProperty Name="Date_HD" ColumnName="Date_HD" />
+          <ScalarProperty Name="ID_NV" ColumnName="ID_NV" />
+          <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
+          <ScalarProperty Name="M_Discount" ColumnName="M_Discount" />
+          <ScalarProperty Name="M_Total" ColumnName="M_Total" />
+          <ScalarProperty Name="M_Received" ColumnName="M_Received" />
+          <ScalarProperty Name="M_Refund" ColumnName="M_Refund" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PNKs">
+      <EntityTypeMapping TypeName="BHMOZZIModel.PNK">
+        <MappingFragment StoreEntitySet="PNK">
+          <ScalarProperty Name="ID_PNK" ColumnName="ID_PNK" />
+          <ScalarProperty Name="Date_PNK" ColumnName="Date_PNK" />
+          <ScalarProperty Name="ID_QL" ColumnName="ID_QL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPs">
+      <EntityTypeMapping TypeName="BHMOZZIModel.SP">
+        <MappingFragment StoreEntitySet="SP">
+          <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
+          <ScalarProperty Name="Name_SP" ColumnName="Name_SP" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="So_Luong" ColumnName="So_Luong" />
+          <ScalarProperty Name="Don_vi_tinh" ColumnName="Don_vi_tinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TK_NV">
+      <EntityTypeMapping TypeName="BHMOZZIModel.TK_NV">
+        <MappingFragment StoreEntitySet="TK_NV">
+          <ScalarProperty Name="ID_NV" ColumnName="ID_NV" />
+          <ScalarProperty Name="Name_NV" ColumnName="Name_NV" />
+          <ScalarProperty Name="SDT_NV" ColumnName="SDT_NV" />
+          <ScalarProperty Name="Email_NV" ColumnName="Email_NV" />
+          <ScalarProperty Name="Password_NV" ColumnName="Password_NV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TK_QL">
+      <EntityTypeMapping TypeName="BHMOZZIModel.TK_QL">
+        <MappingFragment StoreEntitySet="TK_QL">
+          <ScalarProperty Name="ID_QL" ColumnName="ID_QL" />
+          <ScalarProperty Name="Name_QL" ColumnName="Name_QL" />
+          <ScalarProperty Name="SDT_QL" ColumnName="SDT_QL" />
+          <ScalarProperty Name="Email_QL" ColumnName="Email_QL" />
+          <ScalarProperty Name="Password_QL" ColumnName="Password_QL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

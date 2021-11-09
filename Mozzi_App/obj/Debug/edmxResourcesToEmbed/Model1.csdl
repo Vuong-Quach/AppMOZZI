@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BHMOZZIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CTPNK">
+    <Key>
+      <PropertyRef Name="ID_CTPNK" />
+    </Key>
+    <Property Name="ID_CTPNK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_SP" Type="Int32" Nullable="false" />
+    <Property Name="ID_PNK" Type="Int32" Nullable="false" />
+    <Property Name="Name_SP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="So_Luong" Type="Double" Nullable="false" />
+    <NavigationProperty Name="PNK" Relationship="BHMOZZIModel.PNKCTPNK" FromRole="CTPNK" ToRole="PNK" />
+    <NavigationProperty Name="SP" Relationship="BHMOZZIModel.SPCTPNK" FromRole="CTPNK" ToRole="SP" />
+  </EntityType>
+  <EntityType Name="CTHD">
+    <Key>
+      <PropertyRef Name="ID_CTHD" />
+    </Key>
+    <Property Name="ID_CTHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_HD" Type="Int32" Nullable="false" />
+    <Property Name="ID_SP" Type="Int32" Nullable="false" />
+    <Property Name="Name_SP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="So_Luong" Type="Double" Nullable="false" />
+    <Property Name="Don_vi_tinh" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Gia" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Thanh_Tien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="HD" Relationship="Self.FK_CTHD_HD" FromRole="CTHD" ToRole="HD" />
+    <NavigationProperty Name="SP" Relationship="Self.FK_CTHD_SP" FromRole="CTHD" ToRole="SP" />
+  </EntityType>
+  <EntityType Name="HD">
+    <Key>
+      <PropertyRef Name="ID_HD" />
+    </Key>
+    <Property Name="ID_HD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date_HD" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ID_NV" Type="Int32" Nullable="false" />
+    <Property Name="ID_KH" Type="Int32" />
+    <Property Name="M_Discount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="M_Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="M_Received" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="M_Refund" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="CTHDs" Relationship="Self.FK_CTHD_HD" FromRole="HD" ToRole="CTHD" />
+    <NavigationProperty Name="TK_NV" Relationship="BHMOZZIModel.TK_NVHD" FromRole="HD" ToRole="TK_NV" />
+    <NavigationProperty Name="TK_QL" Relationship="BHMOZZIModel.TK_QLHD" FromRole="HD" ToRole="TK_QL" />
+  </EntityType>
+  <EntityType Name="PNK">
+    <Key>
+      <PropertyRef Name="ID_PNK" />
+    </Key>
+    <Property Name="ID_PNK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date_PNK" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ID_QL" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CTPNKs" Relationship="BHMOZZIModel.PNKCTPNK" FromRole="PNK" ToRole="CTPNK" />
+    <NavigationProperty Name="TK_QL" Relationship="BHMOZZIModel.TK_QLPNK" FromRole="PNK" ToRole="TK_QL" />
+  </EntityType>
+  <EntityType Name="SP">
+    <Key>
+      <PropertyRef Name="ID_SP" />
+    </Key>
+    <Property Name="ID_SP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_SP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gia" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="So_Luong" Type="Double" Nullable="false" />
+    <Property Name="Don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="CTHDs" Relationship="Self.FK_CTHD_SP" FromRole="SP" ToRole="CTHD" />
+    <NavigationProperty Name="CTPNKs" Relationship="BHMOZZIModel.SPCTPNK" FromRole="SP" ToRole="CTPNK" />
+  </EntityType>
+  <EntityType Name="TK_NV">
+    <Key>
+      <PropertyRef Name="ID_NV" />
+    </Key>
+    <Property Name="ID_NV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_NV" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SDT_NV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Email_NV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password_NV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="HDs" Relationship="BHMOZZIModel.TK_NVHD" FromRole="TK_NV" ToRole="HD" />
+  </EntityType>
+  <EntityType Name="TK_QL">
+    <Key>
+      <PropertyRef Name="ID_QL" />
+    </Key>
+    <Property Name="ID_QL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_QL" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SDT_QL" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Email_QL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password_QL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="PNKs" Relationship="BHMOZZIModel.TK_QLPNK" FromRole="TK_QL" ToRole="PNK" />
+    <NavigationProperty Name="HDs" Relationship="BHMOZZIModel.TK_QLHD" FromRole="TK_QL" ToRole="HD" />
+  </EntityType>
+  <Association Name="FK_CTHD_HD">
+    <End Role="HD" Type="Self.HD" Multiplicity="1" />
+    <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HD">
+        <PropertyRef Name="ID_HD" />
+      </Principal>
+      <Dependent Role="CTHD">
+        <PropertyRef Name="ID_HD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHD_SP">
+    <End Role="SP" Type="Self.SP" Multiplicity="1" />
+    <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SP">
+        <PropertyRef Name="ID_SP" />
+      </Principal>
+      <Dependent Role="CTHD">
+        <PropertyRef Name="ID_SP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BHMOZZIEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CTPNKs" EntityType="Self.CTPNK" />
+    <EntitySet Name="CTHDs" EntityType="Self.CTHD" />
+    <EntitySet Name="HDs" EntityType="Self.HD" />
+    <EntitySet Name="PNKs" EntityType="Self.PNK" />
+    <EntitySet Name="SPs" EntityType="Self.SP" />
+    <EntitySet Name="TK_NV" EntityType="Self.TK_NV" />
+    <EntitySet Name="TK_QL" EntityType="Self.TK_QL" />
+    <AssociationSet Name="FK_CTHD_HD" Association="Self.FK_CTHD_HD">
+      <End Role="HD" EntitySet="HDs" />
+      <End Role="CTHD" EntitySet="CTHDs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHD_SP" Association="Self.FK_CTHD_SP">
+      <End Role="SP" EntitySet="SPs" />
+      <End Role="CTHD" EntitySet="CTHDs" />
+    </AssociationSet>
+    <AssociationSet Name="PNKCTPNK" Association="BHMOZZIModel.PNKCTPNK">
+      <End Role="PNK" EntitySet="PNKs" />
+      <End Role="CTPNK" EntitySet="CTPNKs" />
+    </AssociationSet>
+    <AssociationSet Name="SPCTPNK" Association="BHMOZZIModel.SPCTPNK">
+      <End Role="SP" EntitySet="SPs" />
+      <End Role="CTPNK" EntitySet="CTPNKs" />
+    </AssociationSet>
+    <AssociationSet Name="TK_QLPNK" Association="BHMOZZIModel.TK_QLPNK">
+      <End Role="TK_QL" EntitySet="TK_QL" />
+      <End Role="PNK" EntitySet="PNKs" />
+    </AssociationSet>
+    <AssociationSet Name="TK_NVHD" Association="BHMOZZIModel.TK_NVHD">
+      <End Role="TK_NV" EntitySet="TK_NV" />
+      <End Role="HD" EntitySet="HDs" />
+    </AssociationSet>
+    <AssociationSet Name="TK_QLHD" Association="BHMOZZIModel.TK_QLHD">
+      <End Role="TK_QL" EntitySet="TK_QL" />
+      <End Role="HD" EntitySet="HDs" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="PNKCTPNK">
+    <End Type="BHMOZZIModel.PNK" Role="PNK" Multiplicity="1" />
+    <End Type="BHMOZZIModel.CTPNK" Role="CTPNK" Multiplicity="*" />
+  </Association>
+  <Association Name="SPCTPNK">
+    <End Type="BHMOZZIModel.SP" Role="SP" Multiplicity="1" />
+    <End Type="BHMOZZIModel.CTPNK" Role="CTPNK" Multiplicity="*" />
+  </Association>
+  <Association Name="TK_QLPNK">
+    <End Type="BHMOZZIModel.TK_QL" Role="TK_QL" Multiplicity="1" />
+    <End Type="BHMOZZIModel.PNK" Role="PNK" Multiplicity="*" />
+  </Association>
+  <Association Name="TK_NVHD">
+    <End Type="BHMOZZIModel.TK_NV" Role="TK_NV" Multiplicity="1" />
+    <End Type="BHMOZZIModel.HD" Role="HD" Multiplicity="*" />
+  </Association>
+  <Association Name="TK_QLHD">
+    <End Type="BHMOZZIModel.TK_QL" Role="TK_QL" Multiplicity="1" />
+    <End Type="BHMOZZIModel.HD" Role="HD" Multiplicity="*" />
+  </Association>
+</Schema>

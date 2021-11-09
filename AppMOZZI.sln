@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mozzi_App", "Mozzi_App\Mozzi_App.csproj", "{477742B0-4910-475A-9FC0-0863DB4D575F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		EasyTest|Any CPU = EasyTest|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{477742B0-4910-475A-9FC0-0863DB4D575F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{477742B0-4910-475A-9FC0-0863DB4D575F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{477742B0-4910-475A-9FC0-0863DB4D575F}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{477742B0-4910-475A-9FC0-0863DB4D575F}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{477742B0-4910-475A-9FC0-0863DB4D575F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{477742B0-4910-475A-9FC0-0863DB4D575F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFD208B5-287F-4676-AFE6-CA58DFA28BE3}
+	EndGlobalSection
+EndGlobal

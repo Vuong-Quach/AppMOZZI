@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BHMOZZIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CTPNK">
+    <Key>
+      <PropertyRef Name="ID_CTPNK" />
+    </Key>
+    <Property Name="ID_CTPNK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_SP" Type="int" Nullable="false" />
+    <Property Name="ID_PNK" Type="int" Nullable="false" />
+    <Property Name="Name_SP" Type="nvarchar" MaxLength="50" />
+    <Property Name="So_Luong" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CTHD">
+    <Key>
+      <PropertyRef Name="ID_CTHD" />
+    </Key>
+    <Property Name="ID_CTHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_HD" Type="int" Nullable="false" />
+    <Property Name="ID_SP" Type="int" Nullable="false" />
+    <Property Name="Name_SP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="So_Luong" Type="float" Nullable="false" />
+    <Property Name="Don_vi_tinh" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Gia" Type="money" Nullable="false" />
+    <Property Name="Thanh_Tien" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HD">
+    <Key>
+      <PropertyRef Name="ID_HD" />
+    </Key>
+    <Property Name="ID_HD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date_HD" Type="datetime" Nullable="false" />
+    <Property Name="ID_NV" Type="int" Nullable="false" />
+    <Property Name="ID_KH" Type="int" />
+    <Property Name="M_Discount" Type="money" />
+    <Property Name="M_Total" Type="money" Nullable="false" />
+    <Property Name="M_Received" Type="money" Nullable="false" />
+    <Property Name="M_Refund" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PNK">
+    <Key>
+      <PropertyRef Name="ID_PNK" />
+    </Key>
+    <Property Name="ID_PNK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date_PNK" Type="datetime" Nullable="false" />
+    <Property Name="ID_QL" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SP">
+    <Key>
+      <PropertyRef Name="ID_SP" />
+    </Key>
+    <Property Name="ID_SP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_SP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gia" Type="money" Nullable="false" />
+    <Property Name="So_Luong" Type="float" Nullable="false" />
+    <Property Name="Don_vi_tinh" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TK_NV">
+    <Key>
+      <PropertyRef Name="ID_NV" />
+    </Key>
+    <Property Name="ID_NV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_NV" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="SDT_NV" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Email_NV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password_NV" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TK_QL">
+    <Key>
+      <PropertyRef Name="ID_QL" />
+    </Key>
+    <Property Name="ID_QL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_QL" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="SDT_QL" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Email_QL" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password_QL" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CTHD_HD">
+    <End Role="HD" Type="Self.HD" Multiplicity="1" />
+    <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HD">
+        <PropertyRef Name="ID_HD" />
+      </Principal>
+      <Dependent Role="CTHD">
+        <PropertyRef Name="ID_HD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHD_SP">
+    <End Role="SP" Type="Self.SP" Multiplicity="1" />
+    <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SP">
+        <PropertyRef Name="ID_SP" />
+      </Principal>
+      <Dependent Role="CTHD">
+        <PropertyRef Name="ID_SP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BHMOZZIModelStoreContainer">
+    <EntitySet Name="CTPNK" EntityType="Self.CTPNK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTHD" EntityType="Self.CTHD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HD" EntityType="Self.HD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PNK" EntityType="Self.PNK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SP" EntityType="Self.SP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TK_NV" EntityType="Self.TK_NV" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TK_QL" EntityType="Self.TK_QL" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CTHD_HD" Association="Self.FK_CTHD_HD">
+      <End Role="HD" EntitySet="HD" />
+      <End Role="CTHD" EntitySet="CTHD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHD_SP" Association="Self.FK_CTHD_SP">
+      <End Role="SP" EntitySet="SP" />
+      <End Role="CTHD" EntitySet="CTHD" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
